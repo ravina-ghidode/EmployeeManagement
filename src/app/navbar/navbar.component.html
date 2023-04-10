@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark text-bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Employee</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/employee-list">Employee-List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logOut()">LogOut</a>
+        </li>
+      </ul>
+     
+      <button
+        type="button"
+        routerLink="add"
+        *ngIf="userRole == 'admin'"
+        class="btn btn-light"
+      >
+        Add Employee
+      </button>
+
+      <div
+        class="dropdown"
+        dropdown
+        *ngIf="accountService.currentUser$ | async"
+      >
+        <a
+          class="dropdown-toggle text-light text-decoration-none ms-2"
+          dropdownToggle
+        >
+          <span>Welcome {{ userName | titlecase }}</span>
+        </a>
+        <div class="dropdown-menu mt-3px" *dropdownMenu>
+          <a class="dropdown-item">Edit Profile</a>
+          <a class="dropdown-item" (click)="logOut()">LogOut</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

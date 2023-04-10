@@ -1,0 +1,52 @@
+<div class="container col-md-4 mt-5 shadow-lg p-3 mb-5 bg-body rounded">
+  <form #addform="ngForm" (ngSubmit)="submit(addform.value)">
+    <h2 class="text-center text-dark">Add New Employee</h2>
+    <hr />
+
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        name="employeeName"
+        placeholder="Enter UserName"
+        ngModel
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder="Enter Email"
+        ngModel
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        name="department"
+        ngModel
+        placeholder="Enter Department"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        name="contactNo"
+        ngModel
+        placeholder="Enter contactNo"
+      />
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-success me-2" type="submit" [disabled]="">
+        Employee Added
+      </button>
+      <button class="btn btn-default" type="button" routerLink="/employee-list">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
